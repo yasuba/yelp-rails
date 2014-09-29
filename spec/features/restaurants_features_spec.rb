@@ -41,3 +41,20 @@ describe 'creating restaurants' do
     end
 
 end
+
+describe 'editing restaurants' do
+
+    before do
+        Restaurant.create(name: 'The FD', description: 'Food wizardry')
+    end
+
+    it 'allows a user to edit a restaurant' do
+        visit '/restaurants'
+        click_link 'Edit The FD'
+        fill_in 'Name', with: 'The Fat Duck'
+        click_button 'Submit restaurant'
+        expect(page).to have_content 'The Fat Duck'
+        expect(current_path).to eq '/restaurants'
+    end
+
+end
