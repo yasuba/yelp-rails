@@ -57,6 +57,14 @@ describe 'editing restaurants' do
         expect(current_path).to eq '/restaurants'
     end
 
+    it 'shows the description' do
+        visit '/restaurants'
+        click_link 'The FD'
+        expect(page).to have_content 'Food wizardry'
+        click_link 'Return to restaurants'
+        expect(current_path).to eq '/restaurants'
+    end
+
 end
 
 describe 'deleting a restaurant' do
