@@ -1,4 +1,14 @@
-error
+<% if @restaurant.errors.any? %>
+<h2><%= pluralize(@restaurant.errors.count, 'error') %></h2>
+<ul>
+<% @restaurant.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+
 
 <%= form_for @restaurant do |f| %>
 <%= f.label :name %>
