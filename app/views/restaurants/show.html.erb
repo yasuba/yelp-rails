@@ -2,4 +2,10 @@
 
 <%= @restaurant.description %>
 
+<ul>
+<%= @restaurant.reviews.each do |review| %>
+    <li><%= "#{review.review}(#{review.rating})" %></li>
+<% end %>
+</ul>
+
 <%= link_to "Return to restaurants", restaurants_path %>
