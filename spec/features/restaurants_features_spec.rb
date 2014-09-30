@@ -29,15 +29,31 @@ describe 'restaurants' do
 end
 
 describe 'creating restaurants' do
+    context 'a valid restaurant' do
 
-    it 'prompts user to fill in form and then displays restaurant' do
-    visit '/restaurants'
-    click_link 'Add a restaurant'
-    fill_in 'Name', with: 'Galvin la Chapelle'
-    fill_in 'Description', with: "It's da shizzle yo"
-    click_button 'Submit restaurant'
-    expect(page).to have_content('Galvin la Chapelle')
-    expect(current_path).to eq '/restaurants'
+        it 'prompts user to fill in form and then displays restaurant' do
+        visit '/restaurants'
+        click_link 'Add a restaurant'
+        fill_in 'Name', with: 'Galvin la Chapelle'
+        fill_in 'Description', with: "It's da shizzle yo"
+        click_button 'Submit restaurant'
+        expect(page).to have_content('Galvin la Chapelle')
+        expect(current_path).to eq '/restaurants'
+        end
+
+    end
+
+    context 'an invalid restaurant' do
+
+        it "does not let you submit with a name that's too short" do
+        visit '/restaurants'
+        click_link 'Add a restaurant'
+        fill_in 'Name', with: 'Ga'
+        click_button 'Submit restaurant'
+        expect(page).not_to have_css 'h2', text: 'Ga'
+        expect(page).to have_content 'error'
+        end
+
     end
 
 end
