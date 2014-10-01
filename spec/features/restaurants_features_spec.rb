@@ -76,6 +76,7 @@ describe 'editing restaurants' do
         visit '/restaurants'
         click_link 'Edit The FD'
         fill_in 'Name', with: 'The Fat Duck'
+        fill_in 'Description', with: 'Food wizardry'
         click_button 'Submit restaurant'
         expect(page).to have_content 'The Fat Duck'
         expect(current_path).to eq '/restaurants'
@@ -83,10 +84,7 @@ describe 'editing restaurants' do
 
     it 'shows the description' do
         visit '/restaurants'
-        click_link 'The FD'
-        expect(page).to have_content 'Food wizardry'
-        expect(current_path).to match /restaurants\/\d/
-        click_link 'Return to restaurants'
+        expect(page).to have_content "Food wizardry"
         expect(current_path).to eq '/restaurants'
     end
 

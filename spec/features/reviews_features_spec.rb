@@ -17,9 +17,7 @@ describe 'writing reviews' do
     it 'allows a user to leave a review in a form' do
         leave_review('Full ov yumz', 5)
         expect(current_path).to eq '/restaurants'
-        click_link 'The FD'
         expect(page).to have_content 'Full ov yumz'
-        expect(current_path).to match /restaurants\/\d/
     end
 
     it 'displays an average rating for all reviews' do
