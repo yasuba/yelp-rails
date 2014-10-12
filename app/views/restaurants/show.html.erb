@@ -1,5 +1,21 @@
 <h2><%= @restaurant.name %></h2>
 
 <p><%= @restaurant.description %></p>
+<%= image_tag @restaurant.image.url(:thumb) %>
+
+<%= form_for [@restaurant, @review] do |f| %>
+    <%= f.label :review, "Your review" %>
+    <%= f.text_area :review %>
+    <%= f.label :rating %>
+    <%= f.select :rating, (1..5) %>
+    <%= f.submit 'Leave review' %>
+<% end %>
+
+<ul class="reviews">
+    <% @restaurant.reviews.each do |review| %>
+      <li><%= "Review: #{review.review}" %><span class="ratings"><%= "Rating: (#{review.rating})" %></span><p class="time-stamp"> Posted: <%= time_ago_in_words(review.created_at)%> ago</p> <%= link_to 'Endorse this review', review_endorsements_path(review), class: 'endorsement-link' %> 
+      <span class='endorsements_count'><%= pluralize(review.endorsements.count, 'endorsement') %></span></li>
+    <% end %>
+    </ul>
 
 <%= link_to "Return to restaurants", restaurants_path %>

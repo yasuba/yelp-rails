@@ -13,20 +13,49 @@
  *= require_tree .
  *= require_self
  */
+body {
+    margin: 8% 0 0 5%;
+}
+
+h1 {
+    margin: 10px 0 10px 5%;
+    font-family: 'Lobster', cursive;
+    font-size: 48px;
+}
 
 h2 a {
     text-decoration: none;
     color: #000;
 }
 
+.navbar-default {
+    background-color: #FFEEE3;
+}
+
+.navbar-right {
+    margin: -4% 5% 0 0;
+}
+
+.btn-info {
+    background-color: #33CCCC;
+    border-color: #33CCCC;
+}
+
+.btn-info a {
+    color: #fff;
+}
+
+.glyphicon a {
+    font-size: 0;
+}
+
  .reviews li {
     list-style: none;
     padding: 1%;
     border: 3px solid #EDEDF3;
-/*    background-color: grey;*/
     border-radius: 10px;
     width: 50%;
-    margin-bottom: 1%;
+    margin: 0 0 1% -4%;
  }
 
  .ratings {
@@ -36,3 +65,9 @@ h2 a {
  .time-stamp {
     font-style: italic;
  }
+
+.thumbnail {
+    margin-top: 1%;
+    width: 8%;
+    padding: 0;
+}

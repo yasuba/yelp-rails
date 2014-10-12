@@ -7,8 +7,9 @@ describe 'writing reviews' do
     end
 
     def leave_review(review, rating)
-        visit '/restaurants'
-        click_link 'Review The FD'
+        visit '/'
+        click_link 'The FD'
+        # click_link 'Review The FD'
         fill_in 'Your review', with: review
         select rating, from: 'Rating'
         click_button 'Leave review'
@@ -16,13 +17,14 @@ describe 'writing reviews' do
 
     it 'allows a user to leave a review in a form' do
         leave_review('Full ov yumz', 5)
-        expect(current_path).to eq '/restaurants'
+        expect(current_path).to match /restaurants\/\d/
         expect(page).to have_content 'Full ov yumz'
     end
 
     it 'displays an average rating for all reviews' do
         leave_review('Full ov yumz', 5)
         leave_review('Whut', 3)
+        click_link 'Return to restaurants'
         expect(page).to have_content('Average rating: ★★★★☆')
     end
 

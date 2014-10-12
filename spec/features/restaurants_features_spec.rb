@@ -33,13 +33,13 @@ describe 'creating restaurants' do
     context 'a valid restaurant' do
 
         it 'prompts user to fill in form and then displays restaurant' do
-        visit '/restaurants'
-        click_link 'Add a restaurant'
-        fill_in 'Name', with: 'Galvin la Chapelle'
-        fill_in 'Description', with: "It's da shizzle yo"
-        click_button 'Submit restaurant'
-        expect(page).to have_content('Galvin la Chapelle')
-        expect(current_path).to eq '/restaurants'
+            visit '/restaurants'
+            click_link 'Add a restaurant'
+            fill_in 'Name', with: 'Galvin la Chapelle'
+            fill_in 'Description', with: "It's da shizzle yo"
+            click_button 'Submit restaurant'
+            expect(page).to have_content('Galvin la Chapelle')
+            expect(current_path).to eq '/restaurants'
         end
 
     end
@@ -63,6 +63,28 @@ describe 'creating restaurants' do
         end
 
     end
+
+    # context 'adding an image' do
+
+    #     it 'can have a thumbnail image file attached on the restaurant index page' do
+    #         visit '/restaurants/new'
+    #         fill_in 'Name', with: 'Nobu'
+    #         attach_file('Image', 'spec/features/nobu.jpg')
+    #         click_button('Submit restaurant')
+    #         expect(page).to have_css 'img'
+    #     end
+
+    #     before do
+    #         Restaurant.create(name: 'KFC', description: 'Chickeny goodness')
+    #     end
+
+    #     it 'can have a medium image attached on the show restaurant page' do
+    #         visit '/restaurants'
+    #         click_link 'KFC'
+    #         expect(page).to have_css 'img'
+    #     end
+
+    # end
 
 end
 

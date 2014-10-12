@@ -1,17 +1,13 @@
 <% if @restaurants.any? %>
   <% @restaurants.each do |restaurant| %>
     <h2> <%=  link_to restaurant.name, restaurant_path(restaurant) %></h2>
-    <%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %>
-    <%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %>
-    <%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %>
+    <span class="glyphicon glyphicon-pencil"><%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %></span>
+    <span class="glyphicon glyphicon-remove"><%= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete %></span>
+   <!--  <%= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant) %> -->
+    <span class="thumbnail"><%= image_tag restaurant.image.url(:thumb) %></span>
     <%= "#{restaurant.description}" %>
-    <h3>Average rating: <%= star_rating(restaurant.average_rating.to_i) %></h3>
-    <ul class="reviews">
-    <% restaurant.reviews.each do |review| %>
-      <li><%= "Review: #{review.review}" %><span class="ratings"><%= "Rating: (#{review.rating})" %></span><p class="time-stamp"> Posted: <%= time_ago_in_words(review.created_at)%> ago</p> <%= link_to 'Endorse this review', review_endorsements_path(review), class: 'endorsement-link' %> 
-      <span class="endorsements_count"><%= review.endorsements.count %></span> endorsement</li>
-    <% end %>
-    </ul>
+    <h3>Average rating: <%= star_rating(restaurant.average_rating) %></h3>
+    
   <% end %>
 <% else %>
   No restaurants yet
@@ -19,3 +15,6 @@
 
 
 <%= link_to "Add a restaurant", new_restaurant_path %>  
+
+
+<!-- order reviews, latest at top. short descriptions on home page and longer ones on show page, larger images on show page, restricting deleting to users/owners, edit and delete buttons are not clickable! assign reviews to users -->
