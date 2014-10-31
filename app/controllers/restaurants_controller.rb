@@ -37,6 +37,7 @@ class RestaurantsController < ApplicationController
     def show
         @restaurant = Restaurant.find(params[:id])
         @review = Review.new
+        @reviews = @restaurant.reviews.sort{|a,b| b.created_at <=> a.created_at}
     end
 
 end
