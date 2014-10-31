@@ -71,3 +71,10 @@ h2 a {
     width: 8%;
     padding: 0;
 }
+
+.edit {
+    line-height: 0;
+    font-size: 0;
+    color: transparent;
+    display: inline;
+}
