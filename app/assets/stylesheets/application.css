@@ -72,9 +72,10 @@ h2 a {
     padding: 0;
 }
 
-.edit {
+.anchor-text {
     line-height: 0;
     font-size: 0;
     color: transparent;
     display: inline;
 }
+
