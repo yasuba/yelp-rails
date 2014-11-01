@@ -79,3 +79,20 @@ h2 a {
     display: inline;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
+#restaurant-info {
+}
+
+#post-review {
+  margin-top: 2% 0;
+}
+
+.reviews {
+}
+
+/*#go-home {
+    clear: left;
+}*/

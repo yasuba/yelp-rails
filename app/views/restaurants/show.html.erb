@@ -1,16 +1,21 @@
-<h2><%= @restaurant.name %></h2>
+<div id="go-home">
+    <%= link_to "Return to restaurants", restaurants_path %>
+</div>
 
-<p><%= @restaurant.description %></p>
-<%= image_tag @restaurant.image.url(:thumb) %>
+<div id="restaurant-info">
+    <h2><%= @restaurant.name %></h2>
+    <p><%= @restaurant.description %></p>
+    <%= image_tag @restaurant.image.url(:medium) %>
 
-<div id="post-review">
-    <%= form_for [@restaurant, @review] do |f| %>
-        <%= f.label :review, "Your review" %>
-        <%= f.text_area :review %>
-        <%= f.label :rating %>
-        <%= f.select :rating, (1..5) %>
-        <%= f.submit 'Leave review' %>
-    <% end %>
+    <div id="post-review">
+        <%= form_for [@restaurant, @review] do |f| %>
+            <%= f.label :review, "Your review" %>
+            <%= f.text_area :review %>
+            <%= f.label :rating %>
+            <%= f.select :rating, (1..5) %>
+            <%= f.submit 'Leave review', class: "btn btn-info" %>
+        <% end %>
+    </div>
 </div>
 
 <ul class="reviews">
@@ -20,7 +25,3 @@
     <% end %>
     </ul>
 
-<%= link_to "Return to restaurants", restaurants_path %>
-
-
-<!-- sort{|a,b| b.created_at <=> a.created_at} -->
