@@ -39,4 +39,9 @@ describe 'writing reviews' do
         expect(page).to have_content('Average rating: ★★★★☆')
     end
 
+    it 'only sign-in users may leave reviews' do
+        leave_review('Gosh, that was tasty', 4)
+        expect(current_path).to eq '/users/sign_in'
+    end
+
 end
