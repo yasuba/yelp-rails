@@ -20,8 +20,7 @@
 
 <ul class="reviews">
     <% @reviews.each do |review| %>
-      <li><%= "Review: #{review.review}" %><span class="ratings"><%= "Rating: (#{review.rating})" %></span><p class="time-stamp"> Posted: <%= time_ago_in_words(review.created_at)%> ago</p> <%= link_to 'Endorse this review', review_endorsements_path(review), class: 'endorsement-link' %>
-      <span class='endorsements_count'><%= pluralize(review.endorsements.count, 'endorsement') %></span></li>
+      <li><%= "Review: #{review.review}" %><span class="ratings"><%= "Rating: (#{review.rating})" %></span><p class="time-stamp"> Posted by <%= review.user.email %> at: <%= time_ago_in_words(review.created_at)%> ago</p></li>
     <% end %>
     </ul>
 

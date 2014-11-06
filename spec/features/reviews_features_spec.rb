@@ -6,6 +6,14 @@ describe 'writing reviews' do
         Restaurant.create(name: 'The FD')
     end
 
+    def sign_up(email, password, password_confirmation)
+        visit '/users/sign_up'
+        fill_in 'Email', with: email
+        fill_in 'Password', with: password
+        fill_in 'Password confirmation', with: password
+        click_button 'Sign up'
+    end
+
     def leave_review(review, rating)
         visit '/'
         click_link 'The FD'
@@ -16,12 +24,15 @@ describe 'writing reviews' do
     end
 
     it 'allows a user to leave a review in a form' do
+        sign_up('m@test.com', '1234567890', '1234567890')
         leave_review('Full ov yumz', 5)
         expect(current_path).to match /restaurants\/\d/
         expect(page).to have_content 'Full ov yumz'
+        expect(page).to have_content 'm@test.com'
     end
 
     it 'displays an average rating for all reviews' do
+        sign_up('o@test.com', '1234567890', '1234567890')
         leave_review('Full ov yumz', 5)
         leave_review('Whut', 3)
         click_link 'Return to restaurants'
