@@ -1,17 +1,12 @@
 require 'rails_helper'
+require_relative 'helpers/user_helper'
+
+include SessionHelpers
 
 describe 'writing reviews' do
 
     before do
         Restaurant.create(name: 'The FD')
-    end
-
-    def sign_up(email, password, password_confirmation)
-        visit '/users/sign_up'
-        fill_in 'Email', with: email
-        fill_in 'Password', with: password
-        fill_in 'Password confirmation', with: password
-        click_button 'Sign up'
     end
 
     def leave_review(review, rating)
