@@ -10,6 +10,7 @@ describe 'restaurants' do
         it 'should display a prompt to add restaurants' do
             visit '/restaurants'
             expect(page).to have_content 'No restaurants yet'
+            sign_up('1@1.com', '1234567890', '1234567890')
             expect(page).to have_link 'Add a restaurant'
         end
 
@@ -36,8 +37,8 @@ describe 'creating restaurants' do
     context 'a valid restaurant' do
 
         it 'only allows a signed-in user to create a restaurant' do
-
-
+            visit '/'
+            expect(page).to_not have_link 'Add a restaurant'
         end
 
         it 'prompts user to fill in form and then displays restaurant' do
