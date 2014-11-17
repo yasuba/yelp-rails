@@ -81,8 +81,14 @@ describe 'editing restaurants' do
         Restaurant.create(name: 'The FD', description: 'Food wizardry')
     end
 
-    it 'allows a user to edit a restaurant' do
+    it 'does not allow an unregistered user to edit a restaurant' do
+      visit '/restaurants'
+      expect(page).to_not have_content 'Edit'
+    end
+
+    it 'allows a signed-in user to edit a restaurant' do
         visit '/restaurants'
+        sign_up('2@1.com', '1234567890', '1234567890')
         click_link 'Edit The FD'
         fill_in 'Name', with: 'The Fat Duck'
         fill_in 'Description', with: 'Food wizardry'
@@ -107,6 +113,7 @@ describe 'deleting a restaurant' do
 
     it 'deletes a restaurant when a user clicks the delete button' do
         visit '/restaurants'
+        sign_up('1@3.com', '1234567890', '1234567890')
         click_link 'Delete The FD'
         expect(page).to_not have_content 'The FD'
         expect(page).to have_content 'Restaurant deleted'
