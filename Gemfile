@@ -4,6 +4,8 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem "paperclip"
 gem 'aws-sdk', '~> 1.5.7'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
