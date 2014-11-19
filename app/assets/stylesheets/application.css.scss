@@ -14,89 +14,79 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body {
-    margin: 8% 0 0 5%;
+  margin: 8% 0 0 5%;
 }
 
 h1 {
-    margin: 10px 0 10px 5%;
-    font-family: 'Lobster', cursive;
-    font-size: 48px;
+  margin: 10px 0 10px 5%;
+  font-family: 'Lobster', cursive;
+  font-size: 48px;
 }
 
 h2 a {
-    text-decoration: none;
-    color: #000;
+  text-decoration: none;
+  color: #000;
 }
 
 .navbar-default {
-    background-color: #FFEEE3;
+  background-color: #FFEEE3;
 }
 
 .navbar-right {
-    margin: -4% 5% 0 0;
+  margin: -4% 5% 0 0;
 }
 
 .btn-info {
-    background-color: #33CCCC;
-    border-color: #33CCCC;
+  background-color: #33CCCC;
+  border-color: #33CCCC;
 }
 
 .btn-info a {
-    color: #fff;
+  color: #fff;
 }
 
 .glyphicon a {
-    font-size: 0;
+  font-size: 0;
 }
 
- .reviews li {
-    list-style: none;
-    padding: 1%;
-    border: 3px solid #EDEDF3;
-    border-radius: 10px;
-    width: 50%;
-    margin: 0 0 1% -4%;
- }
+.reviews li {
+  list-style: none;
+  padding: 1%;
+  border: 3px solid #EDEDF3;
+  border-radius: 10px;
+  width: 50%;
+  margin: 0 0 1% -4%;
+}
 
- .ratings {
-    float: right;
- }
+.ratings {
+  float: right;
+}
 
- .time-stamp {
-    font-style: italic;
- }
+.time-stamp {
+  font-style: italic;
+}
 
 .thumbnail {
-    margin-top: 1%;
-    width: 8%;
-    padding: 0;
+  margin-top: 1%;
+  width: 8%;
+  padding: 0;
 }
 
 .anchor-text {
-    line-height: 0;
-    font-size: 0;
-    color: transparent;
-    display: inline;
+  line-height: 0;
+  font-size: 0;
+  color: transparent;
+  display: inline;
 }
 
 a:hover {
-    text-decoration: none;
-}
-
-#restaurant-info {
+  text-decoration: none;
 }
 
 #post-review {
   margin-top: 2% 0;
 }
-
-.reviews {
-}
-
-/*#go-home {
-    clear: left;
-}*/

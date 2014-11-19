@@ -4,13 +4,13 @@ class Restaurant < ActiveRecord::Base
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
-    has_many :reviews, dependent: :destroy
-    validates :name, length: {minimum: 3, message: "The restaurant name is too short"},
-    uniqueness: {message: "Restaurants must have a unique name"}
+  has_many :reviews, dependent: :destroy
+  validates :name, length: {minimum: 3, message: "The restaurant name is too short"},
+  uniqueness: {message: "Restaurants must have a unique name"}
 
-    def average_rating
-        return 'N/A' if reviews.none?
-        reviews.average(:rating)
-    end
+  def average_rating
+    return 'N/A' if reviews.none?
+    reviews.average(:rating)
+  end
 
 end

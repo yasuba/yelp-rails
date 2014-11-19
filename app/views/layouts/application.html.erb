@@ -8,22 +8,19 @@
   <meta charset="UTF-8">
 </head>
 <body>
-
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <h1>Yelp.</h1>
-    <div class="navbar-right">
-        <% if user_signed_in? %>
-       <button type="button" class="btn btn-info"> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></button>
-        <% else %>
-        <button type="button" class="btn btn-info"><%= link_to "Sign in", new_user_session_path %></button>
-        <button type="button" class="btn btn-info"><%= link_to "Join", new_user_registration_path %></button>
-        <% end %>
-    </div>
-</nav>
-
-<%= notice %>
-<%= yield %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <h1>Yelp.</h1>
+  <div class="navbar-right">
+    <% if user_signed_in? %>
+      <button type="button" class="btn btn-info"> <%= link_to "Sign out", destroy_user_session_path, method: :delete %></button>
+      <% else %>
+      <button type="button" class="btn btn-info"><%= link_to "Sign in", new_user_session_path %></button>
+      <button type="button" class="btn btn-info"><%= link_to "Join", new_user_registration_path %></button>
+    <% end %>
+  </div>
+  </nav>
+  <%= notice %>
+  <%= yield %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

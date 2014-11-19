@@ -3,24 +3,24 @@
 </div>
 
 <div id="restaurant-info">
-    <h2><%= @restaurant.name %></h2>
-    <p><%= @restaurant.description %></p>
-    <%= image_tag @restaurant.image.url(:medium) %>
+  <h2><%= @restaurant.name %></h2>
+  <p><%= @restaurant.description %></p>
+  <%= image_tag @restaurant.image.url(:medium) %>
 
-    <div id="post-review">
-        <%= form_for [@restaurant, @review] do |f| %>
-            <%= f.label :review, "Your review" %>
-            <%= f.text_area :review %>
-            <%= f.label :rating %>
-            <%= f.select :rating, (1..5) %>
-            <%= f.submit 'Leave review', class: "btn btn-info" %>
-        <% end %>
-    </div>
+  <div id="post-review">
+    <%= form_for [@restaurant, @review] do |f| %>
+        <%= f.label :review, "Your review" %>
+        <%= f.text_area :review %>
+        <%= f.label :rating %>
+        <%= f.select :rating, (1..5) %>
+        <%= f.submit 'Leave review', class: "btn btn-info" %>
+    <% end %>
+  </div>
 </div>
 
 <ul class="reviews">
-    <% @reviews.each do |review| %>
-      <li><%= "Review: #{review.review}" %><span class="ratings"><%= "Rating: (#{review.rating})" %></span><p class="time-stamp"> Posted by <%= review.user.email %> at: <%= time_ago_in_words(review.created_at)%> ago</p></li>
-    <% end %>
-    </ul>
+  <% @reviews.each do |review| %>
+    <li><%= "Review: #{review.review}" %><span class="ratings"><%= "Rating: (#{review.rating})" %></span><p class="time-stamp"> Posted by <%= review.user.email %> at: <%= time_ago_in_words(review.created_at)%> ago</p></li>
+  <% end %>
+</ul>
 

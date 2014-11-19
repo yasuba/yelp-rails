@@ -33,11 +33,11 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 group :development, :test do
-    gem 'rspec-rails'
-    gem 'capybara'
-    gem 'rspec-collection_matchers'
-    gem 'poltergeist'
-    gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'rspec-collection_matchers'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password
